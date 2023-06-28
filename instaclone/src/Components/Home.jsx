@@ -218,14 +218,14 @@ const Togglecomments = (post)=>
          <>
 
          <div className="comment-show-box">
-          <img src="http://res.cloudinary.com/ashishcloudinary7272/image/upload/v1687379901/auvtgpxtw7aas44pgyns.png" alt="unable to fetch img" />
+          <img src={item.picture} alt="unable to fetch img" />
           <div className="comment-panel">
 
               {/* card header */}
               <div className="card-header" style={{border:"1px solid black" , backgroundColor:"white", width:"500px" ,}}>
                   <div className="card-pic">
                     <img
-                      src="https://images.unsplash.com/photo-1536782376847-5c9d14d97cc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=876&q=80"
+                      src={item.picture}
                       alt="not loaded"
                     />
                   </div>
