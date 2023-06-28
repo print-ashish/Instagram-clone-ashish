@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    /* background-color: aqua; */
+    box-shadow: 1 px 2px 4px solid black;
+    border-bottom: 2px solid black;
+}
+.navbar ul{
+    display: flex;
+    list-style-type: none;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+.navbar ul li{
+    /* background-color: blue; */
+    /* list-style: none; */
+    text-decoration: none;
+    padding: 1px 19px;
+    transition: 0.1s;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.navbar ul li:hover{
+    /* background-color: blue; */
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 100;
+}
+.nav-menu span{
+    margin: 10px;
+
+}

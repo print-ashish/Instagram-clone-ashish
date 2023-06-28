@@ -1,0 +1,46 @@
+.SignInBox{
+    height: 300px;
+    width: 300px;
+
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #E1306C;
+    background-image: linear-gradient(#405DE6 #5851DB #833AB4 #c13584 #E1306C #FD1D1D);
+    justify-content: space-between;
+    align-items: center;
+}
+.login-box{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* background-color: yellow; */
+    margin: auto;
+}
+.login-box button{
+    width: 80px;
+    height: 25px;
+    margin: 5px auto ;
+    border :none;
+    transition: 0.4s;
+    border-radius: 5px ;
+}
+.login-box button:hover{
+    width: 90px;
+    cursor: pointer;
+    margin: 5px auto ;
+    border :none;
+    border-radius: 5px ;
+    color: white;
+    background-color: #405DE6;
+}
+.login-box input{
+    width: 170px;
+    margin: 5px auto ;
+    border :none;
+    height: 25px;
+    /* background:transparent; */
+    /* border: 2px solid black; */
+    /* border-radius: 5px ; */
+}

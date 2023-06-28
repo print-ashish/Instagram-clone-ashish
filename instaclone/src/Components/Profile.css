@@ -1,0 +1,109 @@
+.profile-header{
+    
+    border: 1px solid black;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 400px;
+    /* height: 300px; */
+}
+ .profile-pic img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid violet;
+}
+.firstsection
+{
+    /* background-color: orange;s */
+    height: max-content;
+    
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    /* border-bottom: 1px solid rgb(130, 120, 120); */
+    align-items: center;
+}
+.firstsection button
+{
+    /* background-color: orange; */
+    height: fit-content;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    
+}
+.firstsection button:hover
+{
+    cursor: pointer; 
+    color: white;
+    background-color: rgb(202, 125, 250);   
+    
+}
+.secondsection{
+
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    /* border-bottom: 1px solid rgb(130, 120, 120); */
+
+    /* background-color: yellow; */
+}
+.posts h3, p{
+    margin: 0;
+
+    /* background-color: yellow; */
+}
+.followers h3, p{
+    margin: 0;
+}
+.following h3, p{
+    margin: 0;
+}
+.thirdsection{
+    /* background-color: green; */
+    /* margin: 5; */
+    /* padding: 3px 25px; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+.thirdsection h4{
+    margin: 0;
+}
+.thirdsection p{
+    margin-top: 4px;
+}
+.gallery
+{
+    margin-top: 50px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: auto; */
+    margin-left: auto;
+
+}
+.gallery img {
+    margin: 5px 5px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    /* opacity: 80%; */
+}
+.gallery img:hover {
+   cursor: pointer;
+   border: 2px solid black;
+   /* width: 410px; */
+   /* opacity: 100%; */
+}

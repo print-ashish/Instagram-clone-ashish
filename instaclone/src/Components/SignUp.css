@@ -1,0 +1,84 @@
+.signup_container{
+    height: 400px;
+    width: 400px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+
+
+}
+
+
+.signup_inp
+{
+    /* background-color: yellow; */
+    justify-content: space-around;
+    align-items: center;
+    height: 230px;
+    margin-bottom: 40px;
+
+
+    
+    display: flex;
+    flex-direction: column;
+}
+.signup_inp input{
+    border: none;
+     height: 30px; 
+     outline: none;
+
+    margin-top: 4px;
+    padding: 2px 20px;
+    width: 200px ;
+    /* width: fit-content; */
+}
+.signup_inp button{
+    border: none;
+     height: 30px; 
+   
+    width: 100px ;
+    outline: none;
+    border-radius: 10px;
+    transition: 0.4s;
+    /* width: fit-content; */
+}
+.signup_inp button:hover{
+    color: white;
+    background-color: rgb(168, 68, 188);
+    /* width: fit-content; */
+}
+
+.useraccept {
+    /* margin: 40px; */
+    padding-top: 10px;
+    width: 240px;
+    /* background-color: yellow; */
+    display: flex;
+    /* flex-direction: space-around; */
+    justify-content: left;
+ 
+}
+.useraccept label{
+    font-size: 13px;
+
+    justify-content: center;
+    align-items: center;
+    /* width: 100px; */
+    margin-top: 7px;
+    /* background-color: red; */
+
+    /* margin-right: 300px; */
+}
+.useraccept input{
+    width: 20px;
+    /* background-color: red; */
+
+    /* margin-right: 300px; */
+}
+
+p span a{
+    
+   color: violet;
+}
