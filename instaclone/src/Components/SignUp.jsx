@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 export default function () {
   const navigate = useNavigate();
   const [name, setname] = useState("");
@@ -82,7 +81,7 @@ const signupnow = ()=>
   }
 
 
-  fetch("http://localhost:8000/signup",
+  fetch("/signup",
   {
     method :"post",
     headers:{ "Content-Type":"application/json"},

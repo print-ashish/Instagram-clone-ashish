@@ -16,7 +16,7 @@ const commentNow = (postId)=>
   {  
     console.log("frontend comment called");
     console.log(postId);
-    fetch("http://localhost:8000/comment",
+    fetch("/comment",
     {
       method:"put",
       headers:
@@ -115,7 +115,7 @@ const commentNow = (postId)=>
   };
   useEffect(() => {
     console.log("calling home")
-    fetch("http://localhost:8000/home", {
+    fetch("/home", {
       method: "get",
       headers: {
         "Content-Type": "application/json",

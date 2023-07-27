@@ -22,7 +22,7 @@ export default function Profile() {
     if (window.confirm(text) == true) {
       // text = "You pressed OK!";
       console.log("delete post called for id = "+ postId)
-      fetch("http://localhost:8000/deletepost",
+      fetch("/deletepost",
       {
         method:"delete",
         headers: {
@@ -56,7 +56,7 @@ export default function Profile() {
   const [mypost ,setmyposts] = useState([]);
   const [userdetails, setuserdetails] = useState("");
   useEffect(() => {
-    fetch("http://localhost:8000/profile", {
+    fetch("/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
