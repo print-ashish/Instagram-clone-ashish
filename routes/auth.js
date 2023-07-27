@@ -24,22 +24,97 @@ router.post("/test",(req, res)=>
 
 })
 
-router.get("/test",(req, res)=>
+
+router.delete("/deletepost",verifyUser,(req, res)=>
 {
-    res.json({message:"hello from get test"})
+
+    const id = req.body.postId;
+    // res.json({message:"hello from get test"})
+    POST.findByIdAndDelete(id).then((data)=>
+    {
+        if(data)
+        {
+            res.json(data)
+        }
+        else{
+            res.json({error:"post not found"})
+        }
+    
+    }).catch((err)=>
+    {
+        res.json({error:"error occurred"});
+    })
     // console.log("home called ");
 
 })
 
+router.get("/searchprofile/:name",(req, res)=>
+{
+    // console.log("user = ",req.user._id)
+    const searchstr = `/^${req.params.name}/`
+    console.log(searchstr);
+    USER.find({"name": {'$regex': req.params.name}})
+    .then((data)=>{
+        if(data)
+        {
+            res.json(data)
+
+        }
+        else{
+            res.json({error:"not found"})
+        }
+       
+        // console.log(data);
+    }).catch(err=>console.log(err));
+
+})
+router.get("/user/:id",(req, res)=>
+{
+    // console.log("user = ",req.user._id)
+    const userid = req.params.id;
+    console.log("user id = "+ userid);
+    USER.findById(userid)
+    .then((data)=>{
+        if(data)
+        {
+            // res.json(data)
+            POST.find({"postedBy": userid})
+           .then((posts)=>{
+        if(posts)
+        {
+            console.log(posts,data)
+            res.json({data , posts})
+
+        }
+        else{
+            res.json({error:"not found"})
+        }
+       
+        // console.log(data);
+    }).catch(err=>console.log(err));
+
+        }
+        else{
+            res.json({error:"not found"})
+        }
+       
+        // console.log(data);
+    }).catch(err=>console.log(err));
+
+})
 
 router.get("/profile",verifyUser,(req, res)=>
 {
     // console.log("user = ",req.user._id)
     POST.find({"postedBy":req.user}).populate("postedBy")
-    .then((data)=>{
-        if(data)
+    .then((postsdata)=>{
+        if(postsdata)
         {
-            res.json(data)
+            USER.findById(req.user).then((userdetails)=>
+            {
+                res.json({postsdata , userdetails})
+            })
+            // res.json(data)
 
         }
         else{
@@ -128,7 +203,7 @@ router.post("/signin",(req,res)=>
 
 router.post("/signup",(req,res)=>
 {
-    // console.log("backend sign up")
+    console.log("backend sign up")
     const{name, userName,email , password} = req.body;
     if(!name || !userName || !email || !password )
     {
@@ -136,7 +211,7 @@ router.post("/signup",(req,res)=>
     }
     USER.findOne({email:email}).then((resdatauser)=>
     {
-
+            console.log("finding duplicate email")
         if(resdatauser)
         {
             // console.log("user already exist");
@@ -144,6 +219,7 @@ router.post("/signup",(req,res)=>
             res.json({error:"user already exits in the db"})
         }
         else{
+            console.log("saving new user account")
             const user = new USER(
                 {
                     name,
@@ -152,8 +228,9 @@ router.post("/signup",(req,res)=>
                     password
                 }
             )
+            
             user.save()
-            .then(user=>{ res.json({message:"saves success"})}).catch(err =>{error: "error saving data"})
+            .then((data)=>{ console.log("account created"); res.json({message:"saves success"})}).catch(err =>{error: "error saving data"})
         
         
 
@@ -206,6 +283,70 @@ router.put("/like",verifyUser,(req,res)=>
         }
         else{
             res.json({error: "error liking"})
+        }
+    }).catch(err=>res.json(err))
+    
+})
+router.put("/follow",verifyUser,(req,res)=>
+{
+    console.log("current user id = ",req.user._id  )
+    console.log("user id = ",req.body.userId  )
+    USER.findByIdAndUpdate(req.body.userId,{
+        $addToSet:{followers:req.user._id} 
+    },
+    {
+        new:true
+    }).then((data)=>
+    {
+        if(data)
+        {
+            USER.findByIdAndUpdate(req.user._id,{
+                $addToSet:{following:req.body.userId} 
+            },
+            {
+                new:true
+            }).then((followdata)=>
+            {
+            console.log('followed  ')
+            console.log(data);
+            res.json(data)
+
+            })
+            
+        }
+        else{
+            res.json({error: "error following"})
+        }
+    }).catch(err=>res.json(err))
+    
+})
+router.put("/unfollow",verifyUser,(req,res)=>
+{
+    console.log("unfollowing called")
+    console.log("current user id = ",req.user._id  )
+    console.log("user id = ",req.body.userId  )
+    USER.findByIdAndUpdate(req.user._id,{
+        $pull:{following:req.body.userId} 
+    }).then((data)=>
+    {
+        
+        if(data)
+        {
+            USER.findByIdAndUpdate(req.body.userId,{
+                $pull:{followers:req.user._id}
+            }).then((finaldata)=>
+            {
+                if(finaldata){
+                    console.log(finaldata);
+                    res.json(finaldata)
+                }
+            })
+            console.log('unfollowed successfully')
+            // console.log(data);
+            // res.json(data)
+        }
+        else{
+            res.json({error: "error unfollowing"})
         }
     }).catch(err=>res.json(err))
     

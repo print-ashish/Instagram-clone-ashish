@@ -16,7 +16,7 @@ const commentNow = (postId)=>
   {  
     console.log("frontend comment called");
     console.log(postId);
-    fetch("/comment",
+    fetch("http://localhost:8000/comment",
     {
       method:"put",
       headers:
@@ -115,7 +115,7 @@ const commentNow = (postId)=>
   };
   useEffect(() => {
     console.log("calling home")
-    fetch("/home", {
+    fetch("http://localhost:8000/home", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -205,7 +205,7 @@ const Togglecomments = (post)=>
                 {/* add-comment */}
                 <div onClick={()=>Togglecomments(post)} id="viewcomments">view {post.comments.length} comments</div>
                 <div className="comment-box">
-                  <input type="text" onChange={(event)=>{setcomment(event.target.value)}}  placeholder="add a comment" />
+                  <input type="text" value={comment} onChange={(event)=>{setcomment(event.target.value)}}  placeholder="add a comment" />
                   <button onClick={()=>commentNow(post._id)}>post</button>
                 </div>
               </div>

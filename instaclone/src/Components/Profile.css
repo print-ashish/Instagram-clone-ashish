@@ -6,6 +6,19 @@
     justify-content: space-around;
     align-items: center;
 }
+#postbtn{
+    position: relative;
+    right:50px;
+    top:15px;
+    color: white;
+
+}
+
+#postbtn:hover{
+    cursor: pointer;
+    font-size:xx-large;
+
+}
 .profile-details{
     display: flex;
     flex-direction: column;

@@ -1,0 +1,161 @@
+.home {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+  }
+  
+  .like-red {
+    color: red;
+    font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+  }
+  
+  .card {
+    border: 1px solid rgb(99, 99, 99);
+    max-width: 400px;
+    height: 450px;
+    margin: 10px;
+  }
+  
+  .card-header {
+    display: flex;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    padding: 4px;
+    height: max-content;
+  }
+  
+  .card-pic img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+  }
+  
+  .card-image img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+  }
+  
+  .card-content p {
+    margin: 0;
+    padding: 0 10px;
+  }
+  
+  .card-content .icons {
+    margin: 0;
+    padding: 0 10px;
+  }
+  
+  .comment-box {
+    display: flex;
+    width: 100%;
+    margin: 4px 0px;
+  }
+  
+  .comment-box input {
+    border: none;
+    outline: none;
+    width: 85%;
+    margin: 2px 4px;
+    background: transparent;
+  }
+  
+  #viewcomments {
+    justify-content: left;
+    padding: 0px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(132, 119, 119);
+  }
+  
+  #viewcomments:hover {
+    cursor: pointer;
+    color: rgb(184, 125, 240);
+  }
+  
+  .comment-show-box {
+    position: fixed;
+    top: 25%;
+    left: 20%;
+    height: 500px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    border: 2px solid black;
+  }
+  
+  .comment-show-box img {
+    width: 100%;
+  }
+  
+  .comment-panel {
+    width: 100%;
+    align-items: baseline;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .close-comment span {
+    cursor: pointer;
+  }
+  
+  .user-comment {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-comment h3,
+  h4 {
+    margin: 0;
+    padding-left: 15px;
+  }
+  
+  .comment-box button {
+    height: 100%;
+    width: 20%;
+    font-size: 15px;
+    font-weight: 300;
+    outline: none;
+    border: none;
+    color: rgb(117, 117, 225);
+    transition: 0.3s;
+  }
+  
+  .comment-box button:hover {
+    border-radius: 10px;
+    background-color: rgb(63, 63, 189);
+    color: white;
+  }
+  
+  .icons span:hover {
+    cursor: pointer;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .card {
+      max-width: 400px;
+    }
+  
+    .comment-show-box {
+      width: 1000px;
+    }
+  
+    .comment-show-box img {
+      width: 50%;
+    }
+  }
+  

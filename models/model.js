@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema.Types;
 
 const userSchema = new mongoose.Schema(
     {
@@ -11,6 +12,11 @@ const userSchema = new mongoose.Schema(
             type:String,
             required: true
          },
+         bio:{
+            type:String,
+            
+            
+         },
          email:
          {
             type:String,
@@ -20,7 +26,20 @@ const userSchema = new mongoose.Schema(
          {
             type:String,
             required: true
-         }
+         },
+         followers: [
+         {
+            type:ObjectId,
+            
+            
+            
+         }],
+         following: [
+            {
+               type:ObjectId
+               
+            }]
+
     }
 
 )

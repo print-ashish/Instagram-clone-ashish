@@ -1,13 +1,62 @@
 import React, { useState , useEffect} from "react";
 import "./Profile.css";
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const navigate = useNavigate()
+  const toastError =(err)=>
+    {
+      toast.error(err)
+  
+    }
+    const toastSuccess = (msg)=>
+    {
+      toast.success(msg);
+      // navigate("/home")
+    }
 
-  const [mypost ,setmyposts] = useState([])
+  const deletepost = (postId)=>
+  {
+    let text = "Press a button!\nEither OK or Cancel.";
+    if (window.confirm(text) == true) {
+      // text = "You pressed OK!";
+      console.log("delete post called for id = "+ postId)
+      fetch("http://localhost:8000/deletepost",
+      {
+        method:"delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("jwt"),
+        },
+        body: JSON.stringify({
+          postId: postId,
+        }),
+      }).then(res=>res.json())
+        .then(data=>
+          {
+            if(data)
+            {
+              // console.log("post deleted successfully",data)
+              toastSuccess("Post deleted Successfully")
+            }
+            else{
+              toastError("Unable to delete post")
+              // console.log("unable to delete post");
+
+            }
+          }).catch(err=>{
+            toastError(err)
+
+          });
+    } 
+     
+  }
+
+  const [mypost ,setmyposts] = useState([]);
+  const [userdetails, setuserdetails] = useState("");
   useEffect(() => {
-    fetch("/profile", {
+    fetch("http://localhost:8000/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -23,17 +72,21 @@ export default function Profile() {
           navigate("/signin")
         }
         else{
-          setmyposts(data);
-        console.log(data);
+          // console.log(mypost);
+          setmyposts(data.postsdata);
+          setuserdetails(data.userdetails);
+
+          
+        // console.log(data);
 
         }
       
       });
-  }, []);
+  }, [mypost , userdetails]);
   return (
     <>
 
-    
+    {/* {console.log(mypost)} */}
 
     <div className="profile-container">
       {/* profileHeader */}
@@ -60,18 +113,20 @@ export default function Profile() {
               <p>Posts</p>
             </div>
             <div className="followers">
-              <h3>144</h3>
+              {/* <h3>{JSON.parse(localStorage.getItem("userdata")).followers.length}</h3> */}
+              <h3>{userdetails?userdetails.followers.length:0}</h3>
               <p>Followers</p>
             </div>
             <div className="following">
-            <h3>77</h3>
+            {/* <h3>{JSON.parse(localStorage.getItem("userdata")).following.length}</h3> */}
+            <h3>{userdetails?userdetails.following.length:0}</h3>
             <p>Following</p>
             </div>
         
           </div>
           <div className="thirdsection">
                 <h4>{JSON.parse(localStorage.getItem("userdata")).name}</h4>
-                <p>Jai Shree Ram</p>
+                <p>{JSON.parse(localStorage.getItem("userdata")).bio}</p>
 
           </div>
         </div> 
@@ -82,7 +137,9 @@ export default function Profile() {
     {
       return(
         <>
-          <img src={post.picture} alt="" />
+          <img id="pic" src={post.picture} alt="error displaying pic"  /><span id="postbtn" onClick={()=>{deletepost(post._id)}} class="material-symbols-outlined">
+delete
+</span>
         </>
       )
     })}
