@@ -9,12 +9,14 @@ module.exports = (req,res,next)=>
 {
     // console.log("authorizing user")
     const {authorization} = req.headers;
-    if(!authorization)
+    // if(!authorization)
     {
-        return res.json({error:"sorry you need to login first"})
+        // return res.json({error:"sorry you need to login first"})
         
-    }
-    else{
+
+        
+    // }
+    // else{
         const token = authorization;
     //    res.json({success:"authorised"})
        jwt.verify(token,jwtsecretkey,(err,payload)=>

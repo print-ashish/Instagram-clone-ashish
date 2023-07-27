@@ -83,7 +83,7 @@ const signupnow = ()=>
   }
 
 
-  fetch("http://localhost:8000/signup",
+  fetch("/signup",
   {
     method :"post",
     headers:{ "Content-Type":"application/json"},
