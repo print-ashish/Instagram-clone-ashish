@@ -16,7 +16,7 @@ export default function UserProfile() {
   const unfollowuser = (userId)=>
   {
     console.log("unfollowing "+ userId);
-    fetch("http://localhost:8000/unfollow",
+    fetch("/unfollow",
     {
       method :"put",
       headers:{ "Content-Type":"application/json",
@@ -41,7 +41,7 @@ export default function UserProfile() {
   const followuser =(userId)=>{
     console.log("following = "+ userId);
 
-    fetch("http://localhost:8000/follow",
+    fetch("/follow",
   {
     method :"put",
     headers:{ "Content-Type":"application/json",
@@ -65,7 +65,7 @@ export default function UserProfile() {
   }
   useEffect(() => {
     // console.log("fetching data ")
-    fetch(`http://localhost:8000/user/${id}`, {
+    fetch(`/user/${id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
