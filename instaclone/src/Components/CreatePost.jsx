@@ -31,7 +31,7 @@ export default function CreatePost() {
         {
 
         
-        fetch("http://localhost:8000/createpost",
+        fetch("/createpost",
         {
             method :"post",
             headers:{
