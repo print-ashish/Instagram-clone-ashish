@@ -56,7 +56,7 @@ export default function Profile() {
   const [mypost ,setmyposts] = useState([]);
   const [userdetails, setuserdetails] = useState("");
   useEffect(() => {
-    fetch("http://localhost:8000/profile", {
+    fetch("/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
