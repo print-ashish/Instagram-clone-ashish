@@ -5,25 +5,34 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 200px;
 }
 #postbtn{
+     color: rgb(7, 4, 4);
+     height: 25px;
+     /* background-color: white; */
+     /* opacity: 0.6;  */
     position: relative;
-    right:50px;
+    right:50px; 
     top:15px;
-    color: white;
+    /* color: white;  */
 
 }
 
 #postbtn:hover{
+     /* color: red;
+     height: 25px;
+     background-color: white;
+     opacity: 0.6; */
     cursor: pointer;
-    font-size:xx-large;
+    
 
 }
 .profile-details{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 400px;
+    width: 60%;
     /* height: 300px; */
 }
  .profile-pic img{
@@ -36,7 +45,6 @@
 {
     /* background-color: orange;s */
     height: max-content;
-    
     display: flex;
     justify-content: space-between;
     text-align: left;
@@ -92,7 +100,9 @@
     text-align: left;
 }
 .thirdsection h4{
-    margin: 0;
+    margin: 0px;
+    margin-top: 5px;
+    padding: 0;
 }
 .thirdsection p{
     margin-top: 4px;
@@ -100,11 +110,12 @@
 .gallery
 {
     margin-top: 50px;
-    width: 90%;
+    width: 100vw;
     display: flex;
+    gap: 5px;
     flex-wrap: wrap;
-    /* margin: auto; */
-    margin-left: auto;
+    justify-content: center;
+    /* margin-left: auto; */
 
 }
 .gallery img {
@@ -115,8 +126,25 @@
     /* opacity: 80%; */
 }
 .gallery img:hover {
-   cursor: pointer;
-   border: 2px solid black;
+   /* cursor: pointer; */
+   /* border: 2px solid black; */
+   box-shadow:2px 2px 10px 1px black;
    /* width: 410px; */
    /* opacity: 100%; */
+}
+@media screen and (max-width: 604px) {
+    .profile-pic img{
+        width: 120px;
+        height: 120px;
+        
+    }
+    .gallery img {
+        margin: 5px 5px;
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        /* opacity: 80%; */
+    }
+
+
 }

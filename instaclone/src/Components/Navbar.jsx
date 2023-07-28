@@ -40,14 +40,14 @@ const Navbar = () => {
       // console.log("user logged in");
       return (
         <>
+        <Link to="/search">
           <span
-            onClick={() => {
-              searchuser();
-            }}
-            class="material-symbols-outlined searchbtn"
+          id="searchbtnmob"
+            class="material-symbols-outlined searchbtn "
           >
             search
           </span>
+          </Link>
           <Link to="/home">
             <span class="material-symbols-outlined">home</span>
           </Link>

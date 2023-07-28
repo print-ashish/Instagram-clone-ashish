@@ -10,6 +10,7 @@ import Profile from './Components/Profile';
 import CreatePost from './Components/CreatePost';
 import UserProfile from './Components/UserProfile';
 import SignUpTailwind from './Components/SignUpTailwind';
+import SearchMobile from './Components/SearchMob';
 function App() {
   return (
     <div className="App">
@@ -24,7 +25,8 @@ function App() {
           <Route  exact path="/" element = {<Home/>}></Route>
           <Route  path="/profile" element = {<Profile/>}></Route>
           <Route  path="/createpost" element = {<CreatePost/>}></Route>
-
+          <Route  path="/search" element = {<SearchMobile/>}></Route>
+          
       </Routes>
     
     </div>

@@ -56,7 +56,7 @@ export default function Profile() {
   const [mypost ,setmyposts] = useState([]);
   const [userdetails, setuserdetails] = useState("");
   useEffect(() => {
-    fetch("/profile", {
+    fetch("http://localhost:8000/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -103,7 +103,7 @@ export default function Profile() {
           {/* 1 */}
           <div className="firstsection">
             <h2>{JSON.parse(localStorage.getItem("userdata")).userName}</h2>
-            <button>Edit profile</button>
+            {/* <button>Edit profile</button> */}
             <span class="material-symbols-outlined">settings</span>
           </div>
           {/* 2 */}
