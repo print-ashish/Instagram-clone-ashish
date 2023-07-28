@@ -65,7 +65,7 @@ export default function UserProfile() {
   }
   useEffect(() => {
     // console.log("fetching data ")
-    fetch(`http://localhost:8000/user/${id}`, {
+    fetch(`/user/${id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

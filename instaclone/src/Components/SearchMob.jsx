@@ -9,7 +9,7 @@ export default function SearchMob() {
 
     const searchuser = () => {
     console.log("seraching profile" + searchprofile);
-    fetch(`http://localhost:8000/searchprofile/${searchprofile}`, {
+    fetch(`/searchprofile/${searchprofile}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
